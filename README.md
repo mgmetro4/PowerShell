@@ -31,6 +31,8 @@ Resource for learning Microsoft PowerShell scripting
   3. Go to directory or use full path to enter: `./hello.ps1`
   
   ** If you don't include `./` before the path name, you will encounter an error
+  
+  ** If the path contains spaces, use `&"path with spaces/script.ps1" ` instead
 
   **Output**:
     ```
