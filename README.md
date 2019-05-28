@@ -1,7 +1,16 @@
-# PowerShell
+# PowerShell - Extension .ps1
 Resource for learning Microsoft PowerShell scripting
+<br><br>
 
 
+# Contents
+
+[Create a File](#create-a-file) <br>
+[Execute a Script](#execute-script) <br>
+
+<br><br><br>
+
+<a id="create-a-file"></a>
 ## Create a File
   ```
   New-Item -Path "path" -Name "name" -ItemType "type" -value "value"
@@ -14,7 +23,8 @@ Resource for learning Microsoft PowerShell scripting
     ```
     New-Item hello.txt -value "Hello World"
     ```
-
+    
+<a id="execute-script"></a>
 ## Allow Script Execution and Execute Script
   1. Open PowerShell in Administration mode (right click -> Run as administrator)
   2. Enter `set-executionpolicy remotesigned`  . This will allow scripts to be run on in both non- and Adminisratior mode.
