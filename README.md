@@ -10,6 +10,7 @@ Resource for learning Microsoft PowerShell scripting
 [Add a Comment](#comments) <br>
 [Basic I/O](#io-basic) <br>
 [Check if Path/File Exists](#if-exists) <br>
+[Comparisons](#compare) <br>
 
 <br><br><br>
 
@@ -105,3 +106,19 @@ Resource for learning Microsoft PowerShell scripting
   True
   False
   ```
+  
+  <a id="compare"></a>
+  
+  ## Comparisons
+  
+  - Compare Booleans
+
+    ```PowerShell
+    New-Item test.txt
+    if($(Test-Path test.txt) -eq $True) {echo 10}
+    ```
+
+    **Output**: `10`
+    
+    - booleans are not case-sensitive. $true, $True, $false, $False, $tRUE, etc.
+
