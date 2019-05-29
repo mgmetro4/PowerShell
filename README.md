@@ -13,6 +13,7 @@ Resource for learning Microsoft PowerShell scripting
 [Comparisons](#compare) <br>
 [Get Current Directory](#get-location) <br>
 [Manipulate Path/Files](#paths-files) <br>
+[Type Casting](#casting) <br>
 
 <br><br><br>
 
@@ -168,6 +169,7 @@ Resource for learning Microsoft PowerShell scripting
   `Get-Location`
 
   Output: 
+  
   ```
 
   Path
@@ -175,7 +177,7 @@ Resource for learning Microsoft PowerShell scripting
   C:\Users\User1\Desktop
 
 
-```
+  ```
 
 <a id="paths-files"></a>
 
@@ -206,3 +208,18 @@ Resource for learning Microsoft PowerShell scripting
   $path.basename    # foo
   $path.extension   # .txt
   ```
+  
+  
+<a id="casting"></a>
+
+## Type Casting
+  
+- **int to string**: 
+  
+  ```PowerShell
+  $myint = 10
+  $mystring = "Num: " + ([string]$myint)
+  Write-Host $mystring
+  ``` 
+  
+  Output: ` Num: 10 `
