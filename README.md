@@ -61,7 +61,8 @@ Resource for learning Microsoft PowerShell scripting
 <a id="txt-files"></a>
 Example: .txt files
 - create .txt file:    `New-Item ./test.txt -value "Foo"`
-- Overwrite file using -force:  `New-Item ./test.txt -value "Foo`tBar" -force`
+- Overwrite file using -force:   `` New-Item ./test.txt -value "Foo`tBar" -force ``
+
 
 
 <a id="spec-chars"></a>
