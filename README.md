@@ -9,6 +9,7 @@ Resource for learning Microsoft PowerShell scripting
 [Execute a Script](#execute-script) <br>
 [Add a Comment](#comments) <br>
 [Basic I/O](#io-basic) <br>
+[Check if Path/File Exists](#if-exists) <br>
 
 <br><br><br>
 
@@ -80,4 +81,23 @@ Example: .txt files
 | `t            | Horizontal tab          |
 | `u{x}         | Unicode escape sequence |
 | `v            | Vertical tab            |
-| --%           | Stop parsing  
+| --%           | Stop parsing            |
+
+
+
+<a id="if-exists"></a>
+
+## Check If Path/File Exists
+- Test-Path works for both files and directories: `Test-Path -Path <path> `
+
+  ```PowerShell
+  New-Item test.ps1
+  Test-Path test.ps1
+  Test-Path test2.ps1
+  ```
+  
+  **Output**
+  ```
+  True
+  False
+  ```
