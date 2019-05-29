@@ -11,6 +11,8 @@ Resource for learning Microsoft PowerShell scripting
 [Basic I/O](#io-basic) <br>
 [Check if Path/File Exists](#if-exists) <br>
 [Comparisons](#compare) <br>
+[Get Current Directory](#get-location) <br>
+[Manipulate Path/Files](#paths-files) <br>
 
 <br><br><br>
 
@@ -128,9 +130,9 @@ Resource for learning Microsoft PowerShell scripting
   False
   ```
   
-  <a id="compare"></a>
+<a id="compare"></a>
   
-  ## Comparisons
+## Comparisons
   
   
   **Comparison Operator Chart**
@@ -155,4 +157,52 @@ Resource for learning Microsoft PowerShell scripting
     **Output**: `10`
     
     - booleans are not case-sensitive. $true, $True, $false, $False, $tRUE, etc.
+    
+    
+   
 
+<a id="get-location"></a>
+
+## Get Current Directory
+
+  `Get-Location`
+
+  Output: 
+  ```
+
+  Path
+  ----
+  C:\Users\User1\Desktop
+
+
+```
+
+<a id="paths-files"></a>
+
+## Manipulate Paths/Files
+- Get path's parent: 
+
+ `Split-Path -parent "C:\Users\User1\Desktop" `   Output: ` C:\Users\User1 `
+ 
+ `Split-Path -parent $(get-location) `   Output: ` C:\Users\User1 `
+  
+- **Get files from a directory** and write to console
+  ```PowerShell
+  Get-ChildItem -path $source -Filter *.dtsx | 
+  Foreach-Object {
+	Write-Host $_   #or $PSItem
+  }
+  ```
+  
+- **Replace spaces in filename** with underscore
+  ```PowerShell
+  $file_name.Replace(' ', '_')
+  ```
+  
+- Get **path name, basename, extension**:
+  ```PowerShell
+  $path = (New-Item -path ./foo.txt)
+  $path.name        #foo.txt
+  $path.basename    # foo
+  $path.extension   # .txt
+  ```
