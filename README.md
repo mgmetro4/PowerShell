@@ -14,6 +14,7 @@ Resource for learning Microsoft PowerShell scripting
 <br><br><br>
 
 <a id="create-a-file"></a>
+
 ## Create a File
   ```
   New-Item -Path "path" -Name "name" -ItemType "type" -value "value"
@@ -28,6 +29,7 @@ Resource for learning Microsoft PowerShell scripting
     ```
     
 <a id="execute-script"></a>
+
 ## Allow Script Execution and Execute Script
   1. Open PowerShell in Administration mode (right click -> Run as administrator)
   2. Enter `set-executionpolicy remotesigned`  . This will allow scripts to be run on in both non- and Adminisratior mode.
@@ -53,42 +55,44 @@ Resource for learning Microsoft PowerShell scripting
 
 ## Basic I/O
 
-**Contents**
+  **Contents**
 
-[create, write, overwrite .txt files](#txt-files) <br>
-[common special characters](#spec-chars) <br>
-
-
-<a id="txt-files"></a>
-Example: .txt files
-- create .txt file:    `New-Item ./test.txt -value "Foo"`
-- Overwrite file using -force:   `` New-Item ./test.txt -value "Foo`tBar" -force ``
+  [create, write, overwrite .txt files](#txt-files) <br>
+  [common special characters](#spec-chars) <br>
 
 
+  <a id="txt-files"></a>
+  Example: .txt files
+  - create .txt file:    `New-Item ./test.txt -value "Foo"`
+  - Overwrite file using -force:   `` New-Item ./test.txt -value "Foo`tBar" -force ``
 
-<a id="spec-chars"></a>
-### Common Special Characters
 
-| Text Symbol   | Character |
-| ------------- | ------------- |  
-| `0            | Null                    |
-| `a            | Alert                   |
-| `b            | Backspace               |
-| `e            | Escape                  |
-| `f            | Form feed               |
-| `n            | New line                |
-| `r            | Carriage return         |
-| `t            | Horizontal tab          |
-| `u{x}         | Unicode escape sequence |
-| `v            | Vertical tab            |
-| --%           | Stop parsing            |
+
+  <a id="spec-chars"></a>
+  
+  ### Common Special Characters
+  
+  | Text Symbol   | Character |
+  | ------------- | ------------- |     
+  | `0            | Null                    |
+  | `a            | Alert                   |
+  | `b            | Backspace               |
+  | `e            | Escape                  |
+  | `f            | Form feed               |
+  | `n            | New line                |
+  | `r            | Carriage return         |
+  | `t            | Horizontal tab          |
+  | `u{x}         | Unicode escape sequence |
+  | `v            | Vertical tab            |
+  | --%           | Stop parsing            |
 
 
 
 <a id="if-exists"></a>
 
 ## Check If Path/File Exists
-- Test-Path works for both files and directories: `Test-Path -Path <path> `
+
+  - Test-Path works for both files and directories: `Test-Path -Path <path> `
 
   ```PowerShell
   New-Item test.ps1
