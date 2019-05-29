@@ -111,6 +111,19 @@ Resource for learning Microsoft PowerShell scripting
   
   ## Comparisons
   
+  
+  **Comparison Operator Chart**
+  
+  | Type | Operator | Descritpion |
+  | ---  | ---      | --- |
+  | Equality | -eq | equals |
+  | | -ne | not equals |
+  | | -gt | greater than |
+  | | -ge | greater than or equal |
+  | | -lt | less than |
+  | | -le | less than or equal |
+
+  
   - Compare Booleans
 
     ```PowerShell
