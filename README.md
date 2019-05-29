@@ -63,9 +63,30 @@ Resource for learning Microsoft PowerShell scripting
 
 
   <a id="txt-files"></a>
-  Example: .txt files
-  - create .txt file:    `New-Item ./test.txt -value "Foo"`
-  - Overwrite file using -force:   `` New-Item ./test.txt -value "Foo`tBar" -force ``
+  ### Example: .txt Files 
+  
+  - **Create** .txt file:    `New-Item ./test.txt -value "Foo"`
+    
+    test.txt:
+      ```
+      Foo
+      ```
+      
+  - **Overwrite** file using -force:   `` New-Item ./test.txt -value "Foo Bar" -force ``
+    
+    test.txt:
+      ```
+      Foo Bar
+      ```
+      
+  - **Append** to file: ``Add-Content test.txt -value "`nNext Line" ``
+    - will not automatically add any whitespace to front of value
+    
+    test.txt:
+      ```
+      Foo Bar
+      Next Line
+      ```
 
 
 
