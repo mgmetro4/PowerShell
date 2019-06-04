@@ -8,14 +8,16 @@ Resource for learning Microsoft PowerShell scripting
 [Create a File](#create-a-file) <br>
 [Execute a Script](#execute-script) <br>
 [Add a Comment](#comments) <br>
+[Functions](#functions) <br>
 [Basic I/O](#io-basic) <br>
 [Check if Path/File Exists](#if-exists) <br>
 [Comparisons](#compare) <br>
 [Get Current Directory](#get-location) <br>
 [Manipulate Path/Files](#paths-files) <br>
 [Type Casting](#casting) <br>
+[Batch to PowerShell Notes](#bat) <br>
 
-<br><br><br>
+---
 
 <a id="create-a-file"></a>
 
@@ -31,14 +33,14 @@ Resource for learning Microsoft PowerShell scripting
     ```
     New-Item hello.txt -value "Hello World"
     ```
-    
+
 <a id="execute-script"></a>
 
 ## Allow Script Execution and Execute Script
   1. Open PowerShell in Administration mode (right click -> Run as administrator)
   2. Enter `set-executionpolicy remotesigned`  . This will allow scripts to be run on in both non- and Adminisratior mode.
   3. Go to directory or use full path to enter: `./hello.ps1`
-  
+
   - If you don't include `./` before the path name, you will encounter an error
   - If the path contains spaces, use `&"path with spaces/script.ps1" ` instead
 
@@ -46,13 +48,23 @@ Resource for learning Microsoft PowerShell scripting
     ```
     Hello World
     ```
-    
-    
+
+
 <a id="comments"></a>
 
 ## Add a Comment
 
 `# this is a comment`
+
+
+<a id="functions"></a>
+## Functions
+
+```PowerShell
+function CreateDTSXWix {
+  param( [string]$source, [string]$dest, [int]$SQL_VER )
+}
+```
 
 
 <a id="io-basic"></a>
@@ -66,25 +78,25 @@ Resource for learning Microsoft PowerShell scripting
 
 
   <a id="txt-files"></a>
-  ### Example: .txt Files 
-  
+  ### Example: .txt Files
+
   - **Create** .txt file:    `New-Item ./test.txt -value "Foo"`
-    
+
     test.txt:
       ```
       Foo
       ```
-      
+
   - **Overwrite** file using -force:   `` New-Item ./test.txt -value "Foo Bar" -force ``
-    
+
     test.txt:
       ```
       Foo Bar
       ```
-      
+
   - **Append** to file: ``Add-Content test.txt -value "`nNext Line" ``
     - will not automatically add any whitespace to front of value
-    
+
     test.txt:
       ```
       Foo Bar
@@ -94,9 +106,9 @@ Resource for learning Microsoft PowerShell scripting
 
 
   <a id="spec-chars"></a>
-  
+
   ### Common Special Characters
-  
+
   | Text Symbol   | Character |
   | ------------- | ------------- |     
   | `0            | Null                    |
@@ -124,20 +136,20 @@ Resource for learning Microsoft PowerShell scripting
   Test-Path test.ps1
   Test-Path test2.ps1
   ```
-  
+
   **Output**
   ```
   True
   False
   ```
-  
+
 <a id="compare"></a>
-  
+
 ## Comparisons
-  
-  
+
+
   **Comparison Operator Chart**
-  
+
   | Type | Operator | Descritpion |
   | ---  | ---      | --- |
   | Equality | -eq | equals |
@@ -147,7 +159,7 @@ Resource for learning Microsoft PowerShell scripting
   | | -lt | less than |
   | | -le | less than or equal |
 
-  
+
   - Compare Booleans
 
     ```PowerShell
@@ -156,11 +168,11 @@ Resource for learning Microsoft PowerShell scripting
     ```
 
     **Output**: `10`
-    
+
     - booleans are not case-sensitive. $true, $True, $false, $False, $tRUE, etc.
-    
-    
-   
+
+
+
 
 <a id="get-location"></a>
 
@@ -168,8 +180,8 @@ Resource for learning Microsoft PowerShell scripting
 
   `Get-Location`
 
-  Output: 
-  
+  Output:
+
   ```
 
   Path
@@ -182,25 +194,25 @@ Resource for learning Microsoft PowerShell scripting
 <a id="paths-files"></a>
 
 ## Manipulate Paths/Files
-- Get path's parent: 
+- Get path's parent:
 
  `Split-Path -parent "C:\Users\User1\Desktop" `   Output: ` C:\Users\User1 `
- 
+
  `Split-Path -parent $(get-location) `   Output: ` C:\Users\User1 `
-  
+
 - **Get files from a directory** and write to console
   ```PowerShell
-  Get-ChildItem -path $source -Filter *.dtsx | 
+  Get-ChildItem -path $source -Filter *.dtsx |
   Foreach-Object {
 	Write-Host $_   #or $PSItem
   }
   ```
-  
+
 - **Replace spaces in filename** with underscore
   ```PowerShell
   $file_name.Replace(' ', '_')
   ```
-  
+
 - Get **path name, basename, extension**:
   ```PowerShell
   $path = (New-Item -path ./foo.txt)
@@ -208,18 +220,37 @@ Resource for learning Microsoft PowerShell scripting
   $path.basename    # foo
   $path.extension   # .txt
   ```
-  
-  
+
+
 <a id="casting"></a>
 
 ## Type Casting
-  
-- **int to string**: 
-  
+
+- **int to string**:
+
   ```PowerShell
   $myint = 10
   $mystring = "Num: " + ([string]$myint)
   Write-Host $mystring
-  ``` 
-  
+  ```
+
   Output: ` Num: 10 `
+
+
+
+<a id="bat"></a>
+## Batch to PowerShell Notes
+  | Batch | PowerShell |
+  | --- | --- |
+  | .bat | .ps1 |
+  | %variable$ | $variable |
+  | @echo on/off | no echo |
+  | %p | $_ or $PSItem |
+  | %SystemRoot% | $Env:SystemRoot |
+  | @ to prevent echo | @ for arrays / hash tables |
+  | Output direction >, >> | supported |
+  | Input direction <, << | not supported - use piping instead |
+  | ^n | `n (tick) |
+
+
+  - %SystemRoot% = C:\Windows.PowerShell
