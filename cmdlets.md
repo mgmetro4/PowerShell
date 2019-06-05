@@ -85,6 +85,15 @@
 <a id="renameitem"></a>
 ## Rename-Item
 
+  ```PowerShell
+  Rename-Item -Path ./t.txt -NewName t2.txt    # t2.txt
+
+  Rename-Item t2.txt -NewName t3               # t3
+
+  Rename-Item t3 t3.txt                        # t3.txt
+
+  Rename-Item t3.txt ./t.txt                   # t.txt
+  ```
 
 ---
 
@@ -102,9 +111,18 @@
 
 <a id="testpath"></a>
 ## Test-Path
-
+  ```PowerShell
+  Test-Path -Path $source   # True / False
+  ```
 
 ---
 
 <a id="writehost"></a>
 ## Write-Host
+
+  ```PowerShell
+  $text = "Hello World"
+  Write-Host Hello    # Hello
+  Write-Host "World"  # World
+  Write-Host $text    # Hello World
+  ```
