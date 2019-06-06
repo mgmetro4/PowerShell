@@ -36,6 +36,7 @@
 <a id="foreach"></a>
 ## ForEach-Object -  %{}
   - "Performs an operation against each item in a collection of input objects."
+
   ```PowerShell
   1, 2, 3 | ForEach-Object {$_}
 
@@ -56,11 +57,46 @@
 ## Get-Content
 
 
+
 ---
 
 <a id="getchilditem"></a>
 ## Get-ChildItem  
+  "Gets the items and child items in one or more specified locations."
 
+  ```PowerShell
+  > $a = Get-ChildItem .
+
+
+  Directory: <dir>
+
+
+  Mode                LastWriteTime         Length Name
+  ----                -------------         ------ ----
+  d-----         6/6/2019   1:16 PM                Folder1
+  d-----        5/31/2019  10:19 AM                Folder2
+  -a----        5/21/2019   4:13 PM            179 Cafe Hours.txt
+  -a----        5/24/2019  11:13 AM       17517508 Project 1.zip
+
+  > $a.GetType()     # System.Array
+  ```
+  ```PowerShell
+  > $a = Get-ChildItem -Path . -Name
+  > $a
+
+  Folder1
+  Folder2
+  Cafe Hours.txt
+  Project 1.zip
+
+
+  > $a.GetType()    # System.Array
+  ```
+
+  ```PowerShell
+  > $a = Get-ChildItem -Path . -Filter *.txt
+  > $a.GetType()      # System.IO.FileSystemInfo
+  ```
 
 ---
 
