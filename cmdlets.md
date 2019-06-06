@@ -55,8 +55,18 @@
 
 <a id="getcontent"></a>
 ## Get-Content
+  "Gets the content of the item at the specified location."
 
+  ```PowerShell
+  $xml = [xml] (Get-Content -Path $source)
+  ```
 
+  ```PowerShell
+  > Get-Content -Path .\file.txt -TotalCount 2      #use -TotalCount 2[-1] to get the 2nd line only
+
+  Line 1
+  Line 2
+  ```
 
 ---
 
