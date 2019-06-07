@@ -145,8 +145,21 @@
 
 <a id="whereobject"></a>
 ## Where-Object
+  "Selects objects from a collection of objects that are passed to it based on their property values."
 
+  ```PowerShell
+  Get-Process | Where-Object {$_.PriorityClass -eq "Normal"}
+  ```
 
+  ```PowerShell
+  Get-Process | Where-Object -Property PriorityClass -eq -Value "Normal"
+  ```
+
+  Omit optional parameters:
+  ```PowerShell
+  Get-Service | where Status -eq "Stopped"
+  ```
+  
 ---
 
 <a id="selectstring"></a>
