@@ -159,13 +159,27 @@
   ```PowerShell
   Get-Service | where Status -eq "Stopped"
   ```
-  
+
 ---
 
 <a id="selectstring"></a>
 ## Select-String
+  "Finds text in input strings and files."
 
+  ```PowerShell
+  'Hello', 'HELLO' | Select-String -Pattern 'HELLO' -CaseSensitive -SimpleMatch     # SimpleMatch = do not process pattern as a regular expression
+  ```
 
+  ```PowerShell
+  $old_cmp_source = $components.file.source | Select-String -Pattern ("\\" + $cmp_name + ".txt") | Select-Object -First 1
+  ```
+
+  ```PowerShell
+  > $a = "\alert2.txt", "\alert.txt" | Select-String -Pattern ".txt"  
+
+  \alert2.txt
+  \alert.txt
+  ```
 ---
 
 <a id="testpath"></a>
