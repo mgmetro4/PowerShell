@@ -22,17 +22,20 @@ Resource for learning Microsoft PowerShell scripting
 <a id="create-a-file"></a>
 
 ## Create a File
-  ```
+  ```PowerShell
   New-Item -Path "path" -Name "name" -ItemType "type" -value "value"
   ```
   - omit path for current directory or use `.`
   - works without string quotations for input that does not contain spaces.
+  
+  ```PowerShell
+  fsutil file createnew <path\filename> 0
+  ```
 
   **Hello World**:
-
-    ```
-    New-Item hello.txt -value "Hello World"
-    ```
+  ```PowerShell
+  New-Item hello.txt -value "Hello World"
+  ```
 
 <a id="execute-script"></a>
 
