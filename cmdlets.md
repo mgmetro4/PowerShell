@@ -28,6 +28,8 @@
 
 [Write-Host](#writehost)
 
+[Set-Item](#setitem)
+
 []()
 
 
@@ -199,3 +201,28 @@
   Write-Host "World"  # World
   Write-Host $text    # Hello World
   ```
+
+---
+
+<a id="setitem"></a>
+## Set-Item
+  "Changes the value of an item to the value specified in the command."
+
+  ```PowerShell
+  Set-item Env:foo "bar"
+  ```
+
+  ```PowerShell
+  $env:foo = "bar"
+  ```
+
+  ```PowerShell
+  Set-Item -Path alias:np -Value "c:\windows\notepad.exe"
+  ```
+
+  ```PowerShell
+  Set-Item -Path env:UserRole -Value "Administrator"
+  ```
+
+
+---

@@ -251,6 +251,7 @@ function CreateDTSXWix {
   | Output direction >, >> | supported |
   | Input direction <, << | not supported - use piping instead |
   | ^n | `n (tick) |
+  | SET foo=bar | $foo = bar |
 
 
   - %SystemRoot% = C:\Windows.PowerShell
